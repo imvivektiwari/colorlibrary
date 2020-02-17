@@ -1,26 +1,58 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{Component} from 'react';
+import Header from './components/Header';
+import ColorPalettes from './components/ColorPalettes';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+
+  constructor(props){
+    super(props);
+    this.state={
+      colors:[
+        [
+          "#FC85AE","#9E579D","#574B90","#303A52"
+        ],
+        [
+          "#FC85AE","#9E579D","#574B90","#303A52"
+        ],
+        [
+          "#FC85AE","#9E579D","#574B90","#303A52"
+        ],
+        [
+          "#FC85AE","#9E579D","#574B90","#303A52"
+        ],
+        [
+          "#FC85AE","#9E579D","#574B90","#303A52"
+        ],
+        [
+          "#FC85AE","#9E579D","#574B90","#303A52"
+        ],
+        [
+          "#FC85AE","#9E579D","#574B90","#303A52"
+        ],
+      ]
+    };
+  }
+
+  render(){
+    return (
+      <div className="App">
+
+        <Header />
+
+        <div id="color-palettes-container">
+          {
+            this.state.colors.map((color)=>{
+              return(
+                <ColorPalettes color={color}/>
+              )
+            })
+          }
+        </div>
+      </div>
+    );
+  };
 }
 
 export default App;
