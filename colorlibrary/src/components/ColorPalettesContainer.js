@@ -12,12 +12,13 @@ class ColorPalettesContainer extends Component{
       }
       
     render(){
+      
         return(
             <div id="color-palettes-container">
                 {
                     this.state.colors.map((color,index)=>{
                         return(
-                        <ColorPalettes color={color} key={`color-palettes-box-${index}`}/>
+                        <ColorPalettes copyToClipboard={this.props.copyToClipboard} color={color} key={`color-palettes-box-${index}`}/>
                         )
                     })
                 }

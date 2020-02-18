@@ -8,16 +8,29 @@ import './App.css';
 
 class App extends Component{
 
- 
+  constructor(props){
+    super(props);
+  };
+
+ copyToClipboard = (colorCode)=>{
+  let copyText = document.getElementById("color-code-text");
+  copyText.value=colorCode;
+  copyText.select();
+  document.execCommand("copy");
+
+ };
+
   render(){
     return (
       <div className="App">
+        <input id="color-code-text" type="text" style={{position:"absolute", top:"-50px"}}/> {/* :)) */}
+      
         <Router>
           <Header />
           <Switch>
-            <Route path="/" exact component={ColorPalettesContainer}/>
-            <Route path="/colorpalettes" exact component={ColorPalettesContainer}/>
-            <Route path="/solidcolors" exact component={SolidColorsContainer}/>
+            <Route path="/" exact render={()=> <ColorPalettesContainer  copyToClipboard={this.copyToClipboard} />} />
+            <Route path="/colorpalettes" exact render={()=> <ColorPalettesContainer copyToClipboard={this.copyToClipboard} />}/>
+            <Route path="/solidcolors" exact render={()=> <SolidColorsContainer copyToClipboard={this.copyToClipboard} />}/>
           </Switch>
         </Router>
       </div>

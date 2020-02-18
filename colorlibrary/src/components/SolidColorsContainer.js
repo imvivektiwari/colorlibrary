@@ -17,7 +17,7 @@ class ColorPalettesContainer extends Component{
                 {
                     this.state.colors.map((color, index)=>{
                         return(
-                        <SolidColors color={color}  key={`color-solid-box-${index}`}/>
+                        <SolidColors copyToClipboard={this.props.copyToClipboard} color={color}  key={`color-solid-box-${index}`}/>
                         )
                     })
                 }
