@@ -15,9 +15,9 @@ class ColorPalettesContainer extends Component{
         return(
             <div id="color-palettes-container">
                 {
-                    this.state.colors.map((color)=>{
+                    this.state.colors.map((color,index)=>{
                         return(
-                        <ColorPalettes color={color}/>
+                        <ColorPalettes color={color} key={`color-palettes-box-${index}`}/>
                         )
                     })
                 }

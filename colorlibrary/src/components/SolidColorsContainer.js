@@ -15,9 +15,9 @@ class ColorPalettesContainer extends Component{
         return(
             <div id="color-palettes-container">
                 {
-                    this.state.colors.map((color)=>{
+                    this.state.colors.map((color, index)=>{
                         return(
-                        <SolidColors color={color}/>
+                        <SolidColors color={color}  key={`color-solid-box-${index}`}/>
                         )
                     })
                 }
