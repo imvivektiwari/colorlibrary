@@ -8,7 +8,7 @@ const ColorPalettes = (props)=>{
          {
            bgcolor.map((color,index)=>{
             return(
-              <div className={`color-box color-box-${index+1}`} style={{background:color}}></div>
+              <div title={color} className={`color-box color-box-${index+1}`} style={{background:color}}></div>
             )
            })
          }

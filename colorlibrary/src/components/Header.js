@@ -6,8 +6,11 @@ const Header = (props)=>{
     return(
       <nav id="header-nav">
          <h3 id="logo-text">ColorLibrery</h3>
-         <div id="menu-contaienr">
-
+         <div id="menu-container">
+            <ul>
+              <li>Color Palettes</li>
+              <li>Solid Colors</li>
+            </ul>
          </div>
       </nav>
     );
