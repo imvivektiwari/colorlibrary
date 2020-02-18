@@ -1,55 +1,25 @@
 import React,{Component} from 'react';
-import Header from './components/Header';
-import ColorPalettes from './components/ColorPalettes';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
+import Header from './components/Header';
+import ColorPalettesContainer from './components/ColorPalettesContainer';
+import SolidColorsContainer from './components/SolidColorsContainer';
 import './App.css';
 
 class App extends Component{
 
-  constructor(props){
-    super(props);
-    this.state={
-      colors:[
-        [
-          "#FC85AE","#9E579D","#574B90","#303A52"
-        ],
-        [
-          "#FC85AE","#9E579D","#574B90","#303A52"
-        ],
-        [
-          "#FC85AE","#9E579D","#574B90","#303A52"
-        ],
-        [
-          "#FC85AE","#9E579D","#574B90","#303A52"
-        ],
-        [
-          "#FC85AE","#9E579D","#574B90","#303A52"
-        ],
-        [
-          "#FC85AE","#9E579D","#574B90","#303A52"
-        ],
-        [
-          "#FC85AE","#9E579D","#574B90","#303A52"
-        ],
-      ]
-    };
-  }
-
+ 
   render(){
     return (
       <div className="App">
-
-        <Header />
-
-        <div id="color-palettes-container">
-          {
-            this.state.colors.map((color)=>{
-              return(
-                <ColorPalettes color={color}/>
-              )
-            })
-          }
-        </div>
+        <Router>
+          <Header />
+          <Switch>
+            <Route path="/" exact component={ColorPalettesContainer}/>
+            <Route path="/colorpalettes" exact component={ColorPalettesContainer}/>
+            <Route path="/solidcolors" exact component={SolidColorsContainer}/>
+          </Switch>
+        </Router>
       </div>
     );
   };
